@@ -30,6 +30,6 @@ bin/
 .DS_Store
 
 horas.txt
+
 .idea/
-out/
 *.iml
