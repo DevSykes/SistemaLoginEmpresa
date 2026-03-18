@@ -1,6 +1,6 @@
 # Employee Login System (WIP)
 
-> **Note:** This is an ongoing class project for my **Software Development diploma** (FP MPO).
+> **Note:** This is an ongoing class project for my **Software Development studies** (FP DAM).
 
 ### Project Status: Work in Progress
 Currently building the core logic to practice **Object-Oriented Programming (OOP)** in Java.
