@@ -2,42 +2,50 @@ import java.util.ArrayList;
 
 public class SistemaLogin {
 
-    private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private final ArrayList<Usuario> usuarios = new ArrayList<>();
 
     // Añadir usuario
     public void agregarUsuario(Usuario u) {
         usuarios.add(u);
     }
 
-    // Login
-    public Usuario login(String username, String password) {
+    // Login por correo y password
+    public Usuario login(String correo, String password) {
         for (Usuario u : usuarios) {
-            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+            if (u.getCorreo().equals(correo) && u.getPassword().equals(password)) {
                 return u;
             }
         }
         return null;
     }
 
-    // Buscar usuario por username
-    public Usuario buscarUsuario(String username) {
+    public Usuario getUsuarioPorDni(String dni) {
         for (Usuario u : usuarios) {
-            if (u.getUsername().equals(username)) {
+            if (u.getDni().equals(dni)) {
                 return u;
             }
         }
         return null;
     }
 
-    // Eliminar usuario
-    public void eliminarUsuario(String username) {
-        usuarios.removeIf(u -> u.getUsername().equals(username));
+    // Eliminar usuario por DNI
+    public boolean eliminarUsuario(String dni) {
+        return usuarios.removeIf(u -> u.getDni().equals(dni));
     }
 
     // Ver todos los usuarios
     public void mostrarUsuarios() {
-        for (Usuario u : usuarios) {
-            System.out.println(u.getUsername() + " - " + u.nombre);
+        if (usuarios.isEmpty()) {
+            System.out.println("No hay usuarios registrados.");
+            return;
         }
+        for (Usuario u : usuarios) {
+            System.out.println(u.getNombre() + " " + u.getApellido() + " - DNI: " + u.getDni() + " - Email: " + u.getCorreo());
+        }
+    }
+
+    // Obtener lista completa de usuarios
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
     }
 }
